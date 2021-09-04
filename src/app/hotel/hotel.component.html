@@ -1,0 +1,52 @@
+
+<div class="row">
+	<div class="page-header">
+		<h3 class="text-center"><strong>Best Restaurant in Pune </strong></h3>
+	</div>
+	<div class="row" style="margin-left:5%; margin-right:5%;">
+    <ul style="list-style: none;">
+      <li *ngFor="let rest of hotel">
+		<div class="col-sm-5 thumbnail hotelBox" style="padding:4px; margin:8px;">
+				<div class="row">
+							<a routerLink="/hotelDashboard/{{ rest.rest_id }}">
+                <div class="col-sm-12">
+                   <img src="assets/hotels/{{ rest.rest_image1 }}" width="100%" />
+                   
+									<div class="description">
+                      <h2 class="text-center">{{ rest.rest_name }}</h2>
+                      <p class="text-center">{{ rest.rest_address }}</p>
+									</div>
+                </div>
+              </a>
+        </div>
+        
+						<hr>
+						<div class="row">
+							<div class="col-sm-12">
+								<p>CUISINES:{{ rest.rest_causines }}</p>
+								<p>HOURS:{{ rest.rest_start_hour}} TO {{ rest.rest_close_hour}}</p>
+								<p>FEATURED IN:{{rest.rest_featured}}</p>
+								<p>DISCOUNT:{{rest.rest_discount}}</p>
+								<p>PROMOTIONS:{{rest.rest_promotion}}</p>
+							</div>
+						</div>
+						<hr>
+						<div class="row" style="margin:8px;">
+							<div class="col-sm-4 btn btn-default">
+								<h4><span class="glyphicon glyphicon-earphone"></span>{{ rest.rest_phone }}</h4>
+							</div>
+							<a href="#">
+							<div class="col-sm-4 btn  btn-default">
+								<h4><span class="glyphicon glyphicon-list"></span> View menu</h4>
+							</div>
+							<div class="col-sm-4 btn btn-danger">
+								<h4><span class="glyphicon glyphicon-shopping-cart"></span> Order Now</h4>
+							</div>
+							</a>
+						</div>
+    </div> 
+  </li>
+</ul>
+  </div>
+</div>
+<router-outlet></router-outlet>

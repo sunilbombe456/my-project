@@ -1,0 +1,9 @@
+<div *ngIf="rest_user as value; else elseBlock">
+    	<div class="page-header"><h1 class="text-center" >Restaurant <button class="btn btn-default" (click)="onLogout()">Logout</button></h1>
+        </div>
+        <app-rest-dash></app-rest-dash>
+</div>
+<ng-template #elseBlock>
+        <app-restaurant-login></app-restaurant-login>
+</ng-template>
+

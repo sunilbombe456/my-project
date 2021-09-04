@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <h3 class="text-center">Admin Login</h3>
+    </div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="text-center">Login</h4>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="adminLoginForm" (ngSubmit)="onLogin()">
+          <div class="form-group">
+            <div class="input-group">
+              <label>username</label>
+              <input type="text" formControlName="ad_username" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <label>password</label>
+              <input type="password" formControlName="ad_pwd" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
+          <div class="input-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!adminLoginForm.valid">Login</button>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

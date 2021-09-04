@@ -1,0 +1,59 @@
+.hotel-detail{
+    position: absolute;
+    top:18%;
+    left:30%;
+    text-shadow:2px 2px 4px #000000;
+
+  }
+  .hotel-detail h1{
+    color:white;
+    font-size: 60px;
+
+  }
+  .slide-image{
+    position: relative;
+    top:0px;
+  }
+  .hotel-detail p{
+    color:white;
+    font-size: 30px;
+
+  }
+  .dish{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    height: 350px;
+    width: 225px;
+
+  }
+  .DishCart{
+    position: absolute;
+    top:10%;
+    right: 5%;
+  }
+  .DishCart a i{
+    font-size: 50px;
+    color:white;
+    text-shadow:2px 2px 4px #000000;
+  }
+
+  .dish{
+    transition:  height 0.2s,width 0.2s ;
+    box-shadow:2px 2px 4px lightgray;
+
+  }
+ 
+  .dish-info{
+    position: absolute;
+    left:10%;
+    top:80%;
+  }
+  .dish-info h3{
+    color:white;
+    text-shadow:2px 2px 4px #000000;
+  }
+  .dish-info h6{
+    color:white;
+    text-shadow:2px 2px 4px #000000;
+  }

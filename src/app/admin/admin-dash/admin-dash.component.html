@@ -1,0 +1,43 @@
+
+    <div class="sidebar">
+      <a class="btn btn-default" (click)="onChange('profile')">Profile</a>
+      <a class="btn btn-default" (click)="onChange('delivery')">Delivery Boy</a>
+      <a class="btn btn-default" (click)="onChange('restaurant')">Restaurant</a>
+      <a class="btn btn-default" (click)="onChange('feedback')">FeedBacks</a>
+    </div>
+    
+    <div class="content">
+        <div class="modal-dialog modal-lg thumbnail">
+               <div class="modal-body">
+                   <!-- nested loop -->
+                   <div *ngIf=" isActiveDiv == 'profile'">
+                        <i class="fas fa-user-circle"></i>
+                        <h2 class="text-center"style="text-shadow: :2px 2px 4px #000000;" >System Admin Name</h2>
+                        <p class="text-center" >sunilbombe456@gmail.com</p>
+                       <h4 class="text-center">8605705665</h4>
+                   </div>
+
+                   <div *ngIf="isActiveDiv == 'delivery'">
+                    <app-delivery-signup></app-delivery-signup>
+                   </div>
+
+                   <div *ngIf="isActiveDiv == 'restaurant'">
+                    <app-rest-signup (RestData)="createRest($event)"></app-rest-signup>
+                   </div>
+
+                   <div *ngIf="isActiveDiv == 'feedback'">
+                    <h2 class="text-center">No feedback Right Now</h2>
+                    </div>
+
+                  <!-- nested loop end -->
+              
+                </div>
+              <router-outlet></router-outlet>
+        </div>
+    </div>
+
+
+
+
+
+

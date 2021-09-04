@@ -1,0 +1,82 @@
+
+<div *ngIf="deliveryForm == true; else elseBlock">
+
+  <!-- form start -->
+  <div class="modal-header">
+      <h2 class="text-center">Register Delivery Boy <button class="btn btn-default" (click)="onRemove()">Remove</button></h2>
+    </div>
+    <div class="modal-body">
+     <form [formGroup]="deliverySignup" (ngSubmit)="onSignUp()" >
+        <div class="form-group">
+          <div class="input-group">
+            <label> Name</label>
+            <input type="text" formControlName="d_name" class="form-control" required>
+          </div>
+        </div>
+      
+  
+        <div class="form-group">
+          <div class="input-group">
+            <label>Phone</label>
+            <input type="text" formControlName="d_phone" class="form-control"  required>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <div class="input-group">
+            <label>City</label>
+            <input type="text" formControlName="d_city" class="form-control" required>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <div class="input-group">
+            <label>Password</label>
+            <input type="Password" formControlName="d_pwd" class="form-control" required>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <div class="input-group">
+            <button type="submit" class="btn btn-danger" [disabled]="!deliverySignup.valid">save</button>
+          </div>
+        </div>
+  
+        
+      </form> 
+    </div>
+  <!-- form end -->
+</div>
+<ng-template #elseBlock>
+    <div class="modal-header">
+        <h2 class="text-center">Remove Delivery Boy<button class="btn btn-default" (click)="onRegister()">Register</button></h2>
+        <!-- table start here -->
+        <table id="cart" class="table table-hover table-condensed" style="box-sizing: border-box">
+    				<thead>
+						<tr>
+							<th style="width:10%">No</th>
+							<th style="width:50%">Name</th>
+							<th style="width:30%">Phone</th>
+							<th style="width:10%">City</th>
+							<th style="width:10%"></th>
+
+						</tr>
+					</thead>
+					<tbody>
+<tr *ngFor="let d of deliveryBoy">
+
+		<th style="width:10%">1</th>
+		<th style="width:50%">{{d.d_name}}</th>
+		<th style="width:30%">{{d.d_phone}}</th>
+		<th style="width:10%" class="text-center">{{d.d_city}}</th>
+		<th style="width:10%"><button (click)="onDelete()"class="btn btn-danger">Remove</button></th>
+		
+	</tr>
+	</tbody>
+	</table>
+        <!-- table end here -->
+    </div>
+</ng-template>
+<!-- new -->
+
+

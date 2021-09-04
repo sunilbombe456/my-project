@@ -1,0 +1,204 @@
+<div class="container">
+  
+  <!-- dashbord -->
+  <div *ngIf="isLogin == false; else elseBlock">
+    <div class="row">
+            <button class="btn btn-primary" (click)="onSignIn()">Sign In</button>
+            <button class="btn btn-primary" (click)="onSignUp()">Sign Up</button>
+  
+        <div *ngIf="login == true">
+            <app-login (loginUser)="loginUser($event)"></app-login>
+        </div>
+        <div *ngIf="login == false">
+          <app-signup (registerUser)="createUser($event)"></app-signup>
+        </div>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+  <div class="row">
+      <div class="page-header">
+          <h2 class="text-center">User Account  <button class="btn btn-primary" (click)="onSignOut()">Sign Out</button></h2>
+      </div>
+    
+      <div class="sidebar">
+          <a class="btn btn-default" (click)="onChange('profile')">Profile</a>
+          <a class="btn btn-default" (click)="onChange('your_order')">Your Orders</a>
+          <a class="btn btn-default" (click)="onChange('delivery_address')">Delivery Address</a>
+          <a class="btn btn-default" (click)="onChange('success_order')">Success Orders</a>
+        </div>
+        
+        <div class="content">
+            <div class="modal-dialog modal-lg thumbnail">
+                   <div class="modal-body">
+                       <!-- nested loop -->
+                       <div *ngIf=" isActiveDiv == 'profile'">
+                            <i class="fas fa-user-circle"></i>
+                            <h2 class="text-center"style="text-shadow: :2px 2px 4px #000000;" >User Account Name</h2>
+                            <p class="text-center" >sunilbombe456@gmail.com</p>
+                           <h4 class="text-center">8605705665</h4>
+                       </div>
+    
+                       <div *ngIf="isActiveDiv == 'your_order'">
+                        <!-- your order block -->
+                        <h3 class="text-center"><strong>Your Order</strong></h3>
+                        <table id="cart" class="table table-hover table-condensed">
+                              <thead>
+                              <tr>
+                                <th style="width:10%">Order No</th>
+                                <th style="width:50%">Dishes</th>
+                                <th style="width:8%">Order Date</th>
+                                <th style="width:20%" class="text-center">total</th>
+                                <th style="width:30%">Hotel Name</th>
+                                <th style="width:10%">payment Status</th>
+                                <th style="width:10%"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                  
+                      <th style="width:10%"> 1</th>
+                      <th style="width:50%">dhosa</th>
+                      <th style="width:8%">21/07/0098</th>
+                      <th style="width:20%" class="text-center">&#8377;700</th>
+                      <th style="width:30%">food palace</th>
+                      <th style="width:10%">complete</th>
+                      <th style="width:10%"><a><button class="btn btn-danger">Cancel</button></a></th>    
+                    </tr>
+                    </tbody>
+                    </table>
+                        <!-- your order end -->
+                       </div>
+    
+                       <div *ngIf="isActiveDiv == 'delivery_address'">
+                        <!-- delivery address start -->
+                    <div class="login-header">
+                            <h3 class="text-centers"><strong>Checkout Address</strong></h3>
+                    </div>
+                  <form  >
+                  <div class="table">
+                  <table class="table-info">
+                  <tr>
+                    <td colspan="4">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <label>Name</label>
+                          <input type="text"  width="100%" class="form-control" required >
+                        </div>
+                      </div>
+                    </td>
+                    <td colspan="2"></td>
+                    <td colspan="4">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <label>Phone No</label>
+                          <input type="text" width="10em" class="form-control" required>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr rowspan="4">
+                    <td colspan="10">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <label>Address</label>
+                          <textarea rows="3" class="form-control"  width="100%" required>
+                            
+                          </textarea>
+                          
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr border="none">
+                    <td colspan="4">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <label>Pin Code</label>
+                          <input type="text"  width="10em" class="form-control" required>
+                        </div>
+                      </div>
+                    </td>
+                    <td colspan="2"></td>
+                    <td colspan="4">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <label>locality</label>
+                          <input type="text"   width="10em" class="form-control" required>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <label>City/District/Town</label>
+                          <input type="text"  class="form-control" required>
+                        </div>
+                      </div>
+                    </td>
+                    <td colspan="2"></td>
+                    <td colspan="4">
+                    </td>
+                  </tr>
+                  <tr>
+                  <td colspan="10">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input type="submit" class="btn-lg btn btn-danger" value="save and deliver here" >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  </table>
+                  </div>
+                </form>
+
+                        <!-- delivery address end -->
+                       </div>
+    
+                       <div *ngIf="isActiveDiv == 'success_order'">
+                        <!-- success order -->
+                        <h3 class="text-center"><strong>Your Success</strong></h3>
+                        <table id="cart" class="table table-hover table-condensed">
+                              <thead>
+                              <tr>
+                                <th style="width:10%">Order No</th>
+                                <th style="width:50%">Dishes</th>
+                                <th style="width:8%">Order Date</th>
+                                <th style="width:20%" class="text-center">total</th>
+                                <th style="width:30%">Hotel Name</th>
+                                <th style="width:10%">payment Status</th>
+                                <th style="width:10%"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                  
+                      <th style="width:10%"> 1</th>
+                      <th style="width:50%">dhosa</th>
+                      <th style="width:8%">21/07/0098</th>
+                      <th style="width:20%" class="text-center">&#8377;700</th>
+                      <th style="width:30%">food palace</th>
+                      <th style="width:10%">complete</th>
+                      <th style="width:10%"><a><button class="btn btn-danger">Cancel</button></a></th>    
+                    </tr>
+                    </tbody>
+                    </table>
+                        <!-- success order end -->
+                        </div>
+    
+                      <!-- nested loop end -->
+                  
+                    </div>
+                  <router-outlet></router-outlet>
+            </div>
+        </div>
+    
+    
+  </div>
+  </ng-template>
+  <!-- dashboard end -->
+ </div>
+
+        
